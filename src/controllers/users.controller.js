@@ -1,4 +1,4 @@
-const { randomUUID } = require('node:crypto');
+import { randomUUID } from 'node:crypto';
 
 const users = [
   {
@@ -121,7 +121,7 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 }
 
-module.exports = {
+export {
   getAllUsers,
   getUserById,
   createUser,

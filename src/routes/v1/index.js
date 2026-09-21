@@ -1,8 +1,8 @@
-const express = require('express');
-const usersRoutes = require('./users.routes');
-const workoutsRoutes = require('./workouts.routes');
-const exercisesRoutes = require('./exercises.routes');
-const progressRoutes = require('./progress.routes');
+import express from 'express';
+import usersRoutes from './users.routes.js';
+import workoutsRoutes from './workouts.routes.js';
+import exercisesRoutes from './exercises.routes.js';
+import progressRoutes from './progress.routes.js';
 
 const router = express.Router();
 
@@ -11,4 +11,4 @@ router.use('/workouts', workoutsRoutes);
 router.use('/exercises', exercisesRoutes);
 router.use('/progress', progressRoutes);
 
-module.exports = router;
+export default router;
