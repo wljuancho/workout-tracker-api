@@ -1,4 +1,4 @@
-const { randomUUID } = require('node:crypto');
+import { randomUUID } from 'node:crypto';
 
 const workouts = [
   {
@@ -90,7 +90,7 @@ function deleteWorkout(req, res) {
   return res.status(204).send();
 }
 
-module.exports = {
+export {
   getAllWorkouts,
   getWorkoutById,
   createWorkout,

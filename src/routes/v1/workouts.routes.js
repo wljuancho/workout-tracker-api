@@ -1,5 +1,5 @@
-const express = require('express');
-const workoutsController = require('../../controllers/workouts.controller');
+import express from 'express';
+import * as workoutsController from '../../controllers/workouts.controller.js';
 
 const router = express.Router();
 
@@ -10,4 +10,4 @@ router.put('/:id', workoutsController.updateWorkout);
 router.patch('/:id', workoutsController.updateWorkout);
 router.delete('/:id', workoutsController.deleteWorkout);
 
-module.exports = router;
+export default router;
