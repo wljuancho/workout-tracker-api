@@ -1,12 +1,12 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
 
-module.exports = {
-  port: Number(process.env.PORT) || 3000,
-  db: {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    port: Number(process.env.DB_PORT) || 3306
-  }
+dotenv.config();
+
+export const port = Number(process.env.PORT) || 3000;
+export const db = {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: Number(process.env.DB_PORT) || 3306
 };
