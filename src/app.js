@@ -7,6 +7,19 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use((req, res, next) => {
+    res.set({
+        'X-API-Version': 'v1',
+        'X-Content-Type-Options': 'nosniff'
+    });
+
+    if (req.get('X-API-Key')) {
+        res.set('X-API-Key-Received', 'true');
+    }
+
+    return next();
+});
+
 app.get('/', (req, res) => {
     res.send('Hola, mi servidor Express esta funcionando.');
 });
@@ -21,7 +34,10 @@ app.use((error, req, res, next) => {
         });
     }
 
-    return next(error);
+    return res.status(500).json({
+        error: 'Error interno del servidor',
+        message: error.message
+    });
 });
 
 app.listen(port, () => {
