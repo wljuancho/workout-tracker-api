@@ -1,4 +1,4 @@
-const { randomUUID } = require('node:crypto');
+import { randomUUID } from 'node:crypto';
 
 const progressRecords = [
   {
@@ -79,7 +79,7 @@ function deleteProgress(req, res) {
   return res.status(204).send();
 }
 
-module.exports = {
+export {
   getAllProgress,
   getProgressById,
   createProgress,
